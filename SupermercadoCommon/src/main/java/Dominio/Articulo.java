@@ -2,6 +2,8 @@ package Dominio;
 
 public class Articulo {
 	
-	private 
+	private String nombre;
+	private double precio;
+	private int stock;
 
 }
