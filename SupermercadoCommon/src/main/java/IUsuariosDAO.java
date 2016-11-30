@@ -1,4 +1,4 @@
 
-public class IUsuariosDAO {
+public interface IUsuariosDAO {
 
 }
