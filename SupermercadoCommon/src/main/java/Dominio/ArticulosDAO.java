@@ -5,14 +5,26 @@ import java.util.List;
 import Interfaces.IArticulosDAO;
 
 public class ArticulosDAO implements IArticulosDAO {
-
+	
+	private List<Articulo> listaArticulos; 
+	
 	public Articulo getArticulo(int id) {
-		// TODO Auto-generated method stub
+		for(int i=0; i<listaArticulos.size(); i++){
+			Articulo art=listaArticulos.get(i);
+			if(art.getId()==id){
+				return art;
+			}
+		}
 		return null;
 	}
 
 	public Articulo getArticuloNombre(String nombre) {
-		// TODO Auto-generated method stub
+		for(int i=0; i<listaArticulos.size(); i++){
+			Articulo art=listaArticulos.get(i);
+			if(art.getNombre()==nombre){
+				return art;
+			}
+		}
 		return null;
 	}
 
@@ -22,18 +34,30 @@ public class ArticulosDAO implements IArticulosDAO {
 	}
 
 	public Articulo actualizaArticulo(Articulo nuevoArticulo) {
-		// TODO Auto-generated method stub
+		for(int i=0; i<listaArticulos.size(); i++){
+			Articulo art=listaArticulos.get(i);
+			if(art.getId()==nuevoArticulo.getId()){
+				listaArticulos.remove(i);
+				listaArticulos.add(nuevoArticulo);
+				return nuevoArticulo;
+			}
+		}
 		return null;
 	}
 
 	public Articulo eliminaArticulo(Articulo art) {
-		// TODO Auto-generated method stub
+		for(int i=0; i<listaArticulos.size(); i++){
+			Articulo a=listaArticulos.get(i);
+			if(a.getId()==art.getId()){
+				listaArticulos.remove(i);
+				return a;
+			}
+		}
 		return null;
 	}
 
 	public List<Articulo> listaArticulo() {
-		// TODO Auto-generated method stub
-		return null;
+		return listaArticulos;
 	}
 
 }

@@ -6,8 +6,15 @@ import Interfaces.IPedidosDAO;
 
 public class PedidosDAO implements IPedidosDAO {
 
+	private List<Pedido> listaPedidos;
+	
 	public Pedido getPedido(int p) {
-		// TODO Auto-generated method stub
+		for(int i=0; i<listaPedidos.size(); i++){
+			Pedido ped=listaPedidos.get(i);
+			if(ped.getIdPedido()==p){
+				return ped;
+			}
+		}
 		return null;
 	}
 
@@ -17,7 +24,14 @@ public class PedidosDAO implements IPedidosDAO {
 	}
 
 	public Pedido actualizaPedido(Pedido nuevoPedido) {
-		// TODO Auto-generated method stub
+		for(int i=0; i<listaPedidos.size(); i++){
+			Pedido p=listaPedidos.get(i);
+			if(p.getIdPedido()==nuevoPedido.getIdPedido()){
+				listaPedidos.remove(i);
+				listaPedidos.add(nuevoPedido);
+				return nuevoPedido;
+			}
+		}
 		return null;
 	}
 
