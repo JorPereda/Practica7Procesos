@@ -1,27 +1,30 @@
 import Dominio.Articulo;
+import Dominio.ArticulosDAO;
 import Dominio.Usuario;
 import Interfaces.IInventario;
 
 public class GestionInventario implements IInventario{
 
+	ArticulosDAO art = new ArticulosDAO();
+	
 	public boolean addArticulo(Usuario user) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public boolean removeArticulo(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		Articulo arti=art.getArticulo(id);
+		if((art.eliminaArticulo(arti)).equals(null)){
+			return false;
+		}
+		return true;
 	}
 
 	public boolean updateArticulo(Usuario user) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public Articulo getArticulo(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return art.getArticulo(id);
 	}
 
 	

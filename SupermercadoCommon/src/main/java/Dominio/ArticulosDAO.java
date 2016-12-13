@@ -29,8 +29,8 @@ public class ArticulosDAO implements IArticulosDAO {
 	}
 
 	public Articulo creaArticulo(Articulo art) {
-		// TODO Auto-generated method stub
-		return null;
+		listaArticulos.add(art);
+		return art;
 	}
 
 	public Articulo actualizaArticulo(Articulo nuevoArticulo) {
