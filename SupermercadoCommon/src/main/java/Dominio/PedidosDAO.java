@@ -6,47 +6,30 @@ import Interfaces.IPedidosDAO;
 
 public class PedidosDAO implements IPedidosDAO {
 
-	private List<Pedido> listaPedidos;
-	
 	public Pedido getPedido(int p) {
-		for(int i=0; i<listaPedidos.size(); i++){
-			Pedido ped=listaPedidos.get(i);
-			if(ped.getIdPedido()==p){
-				return ped;
-			}
-		}
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Pedido creaPedido(Pedido ped) {
-		listaPedidos.add(ped);
-		return ped;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public Pedido actualizaPedido(Pedido nuevoPedido) {
-		for(int i=0; i<listaPedidos.size(); i++){
-			Pedido p=listaPedidos.get(i);
-			if(p.getIdPedido()==nuevoPedido.getIdPedido()){
-				listaPedidos.remove(i);
-				listaPedidos.add(nuevoPedido);
-				return nuevoPedido;
-			}
-		}
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Pedido eliminaPedido(Pedido ped) {
-		for(int i=0;i<listaPedidos.size();i++){
-			if(listaPedidos.get(i).equals(ped)){
-				listaPedidos.remove(i);
-				return listaPedidos.get(i);
-			}
-		}
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public List<Pedido> listaPedidos() {
-		return listaPedidos;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }
