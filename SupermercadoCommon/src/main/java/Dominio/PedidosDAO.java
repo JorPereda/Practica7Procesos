@@ -19,8 +19,8 @@ public class PedidosDAO implements IPedidosDAO {
 	}
 
 	public Pedido creaPedido(Pedido ped) {
-		// TODO Auto-generated method stub
-		return null;
+		listaPedidos.add(ped);
+		return ped;
 	}
 
 	public Pedido actualizaPedido(Pedido nuevoPedido) {
@@ -36,13 +36,17 @@ public class PedidosDAO implements IPedidosDAO {
 	}
 
 	public Pedido eliminaPedido(Pedido ped) {
-		// TODO Auto-generated method stub
+		for(int i=0;i<listaPedidos.size();i++){
+			if(listaPedidos.get(i).equals(ped)){
+				listaPedidos.remove(i);
+				return listaPedidos.get(i);
+			}
+		}
 		return null;
 	}
 
 	public List<Pedido> listaPedidos() {
-		// TODO Auto-generated method stub
-		return null;
+		return listaPedidos;
 	}
 
 }

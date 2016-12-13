@@ -5,7 +5,7 @@ import Dominio.Usuario;
 
 public interface IUsuariosDAO {
 	
-	Usuario creaUsuario(Usuario User);
+	Usuario creaUsuario(Usuario user);
 	Usuario usuario(String usuario);
 	Usuario actualizaUsuario(Usuario nuevoUsuario);
 	Usuario eliminaUsuario(String usuario);

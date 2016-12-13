@@ -8,4 +8,15 @@
   	<module>SupermercadoBusiness</module>
   	<module>SupermercadoCommon</module>
   </modules>
+  
+  <dependencies>
+  <!-- Java EE API -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
 </project>
