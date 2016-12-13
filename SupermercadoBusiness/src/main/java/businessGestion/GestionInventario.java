@@ -1,3 +1,4 @@
+package businessGestion;
 import Dominio.Articulo;
 import Dominio.Usuario;
 import Interfaces.IInventario;
