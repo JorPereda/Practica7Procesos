@@ -1,22 +1,30 @@
+package negocio;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+
 import Dominio.Usuario;
-import Dominio.UsuariosDAO;
 import Interfaces.IRegistro;
 import Interfaces.IUsuarios;
 
+@Stateless
 public class GestionUsuarios implements IUsuarios, IRegistro {
 
-	UsuariosDAO usu = new UsuariosDAO();
+	@EJB
+	public IUsuarios usu;
+	
+	@EJB
+	public IRegistro reg;
+	
+	public GestionUsuarios(){
+		
+	}
 	
 	public boolean registraUsuario(Usuario u) {
-		if(usu.creaUsuario(u).equals(null)){
-			return false;
-		}else{
-			return true;
-		}
+		return reg.registraUsuario(u);
 	}
 
 	public Usuario getUsuario(String nombre) {
-		return usu.usuario(nombre);
+		return usu.getUsuario(nombre);
 	}
 
 }

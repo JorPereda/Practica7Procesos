@@ -5,5 +5,9 @@
     <artifactId>Supermercado-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  
   <artifactId>SupermercadoCommon</artifactId>
+  
+  <name>SupermercadoCommon</name>
+  
 </project>

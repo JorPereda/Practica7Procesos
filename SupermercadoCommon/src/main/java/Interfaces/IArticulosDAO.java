@@ -2,8 +2,11 @@ package Interfaces;
 
 import java.util.List;
 
+import javax.ejb.Remote;
+
 import Dominio.Articulo;
 
+@Remote
 public interface IArticulosDAO {
 	
 	Articulo getArticulo(int id);
