@@ -4,25 +4,21 @@ import java.util.List;
 
 public class Pedido {
 	
-	private int idPedido;
+	private static int idPedido;
 	private List<Articulo> articulos;
 	
 	public Pedido(){
 		super();
 	}
 	
-	public Pedido(int idPedido, List<Articulo> articulos) {
+	public Pedido(List<Articulo> articulos) {
 		super();
-		this.idPedido = idPedido;
+		idPedido = Pedido.idPedido++;
 		this.articulos = articulos;
 	}
 
 	public int getIdPedido() {
 		return idPedido;
-	}
-
-	public void setIdPedido(int idPedido) {
-		this.idPedido = idPedido;
 	}
 
 	public List<Articulo> getArticulos() {

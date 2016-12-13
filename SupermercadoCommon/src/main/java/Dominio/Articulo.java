@@ -2,14 +2,7 @@ package Dominio;
 
 public class Articulo {
 	
-	private int id;
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	private static int idArticulo = 1;
 
 	private String nombre;
 	private double precio;
@@ -21,11 +14,16 @@ public class Articulo {
 
 	public Articulo(String nombre, double precio, int stock) {
 		super();
+		idArticulo = Articulo.idArticulo++;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;
 	}
 
+	public int getId() {
+		return idArticulo;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
