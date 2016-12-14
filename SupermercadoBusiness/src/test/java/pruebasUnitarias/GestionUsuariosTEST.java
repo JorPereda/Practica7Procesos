@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TestUnitarios {
+public class GestionUsuariosTEST{
 	
 	private static IUsuarios		usuariosI;
 	private static IRegistro		registroI;
