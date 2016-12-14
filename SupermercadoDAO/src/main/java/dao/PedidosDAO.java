@@ -1,7 +1,8 @@
-package Dominio;
+package dao;
 
 import java.util.List;
 
+import Dominio.Pedido;
 import Interfaces.IPedidosDAO;
 
 public class PedidosDAO implements IPedidosDAO {

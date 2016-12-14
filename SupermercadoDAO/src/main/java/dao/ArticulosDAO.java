@@ -1,7 +1,8 @@
-package Dominio;
+package dao;
 
 import java.util.List;
 
+import Dominio.Articulo;
 import Interfaces.IArticulosDAO;
 
 public class ArticulosDAO implements IArticulosDAO {

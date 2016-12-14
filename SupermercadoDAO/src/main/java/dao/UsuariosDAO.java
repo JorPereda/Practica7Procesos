@@ -1,6 +1,7 @@
-package Dominio;
+package dao;
 import java.util.List;
 
+import Dominio.Usuario;
 import Interfaces.IUsuariosDAO;
 
 public class UsuariosDAO implements IUsuariosDAO {
