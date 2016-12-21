@@ -9,30 +9,35 @@ import javax.persistence.*;
 public class Pedido implements Serializable{
 	
 	@Id
-	private static int idPedido;
+	@GeneratedValue
+	private int idPedido;
 	private String estado;
-	private List<Articulo> articulos;
+	@OneToMany
+	@JoinTable(name="PedidoLineaPedido",
+			   joinColumns=@JoinColumn(name="idPedFK"),
+			   inverseJoinColumns=@JoinColumn(name="idLineaFK"))
+	private List<LineaPedido> listaCompra;
 	
 	public Pedido(){
 		super();
 	}
 	
-	public Pedido(List<Articulo> articulos) {
+	public Pedido(List<LineaPedido> articulos) {
 		super();
-		idPedido = Pedido.idPedido++;
-		this.articulos = articulos;
+		this.listaCompra = articulos;
 	}
 
 	public int getIdPedido() {
 		return idPedido;
 	}
 
-	public List<Articulo> getArticulos() {
-		return articulos;
+	
+	public List<LineaPedido> getListaCompra() {
+		return listaCompra;
 	}
 
-	public void setArticulos(List<Articulo> articulos) {
-		this.articulos = articulos;
+	public void setListaCompra(List<LineaPedido> listaCompra) {
+		this.listaCompra = listaCompra;
 	}
 
 	public String getEstado() {

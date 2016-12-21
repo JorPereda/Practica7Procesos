@@ -9,6 +9,8 @@ public class Usuario implements Serializable{
 
 	private String nombre;
 	@Id
+	@GeneratedValue
+	private int id;
 	private String dni;
 	private String direccion;
 	

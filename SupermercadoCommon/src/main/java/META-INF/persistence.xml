@@ -9,6 +9,7 @@
 		<class>Dominio.Articulo</class>
 		<class>Dominio.Pedido</class>
 		<class>Dominio.Usuario</class>
+		<class>Dominio.LineaPedido</class>
 		
 		<properties>
 			<property name="eclipselink.ddl-generation" value="create-or -extend-tables"/>
