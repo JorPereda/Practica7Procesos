@@ -2,14 +2,21 @@ package dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import Dominio.Articulo;
 import Interfaces.IArticulosDAO;
 
+@Stateless
 public class ArticulosDAO implements IArticulosDAO {
 
+	@PersistenceContext(unitName="ArticulosPU")	//PU=PersistenceUnit
+	private EntityManager em;
+	
 	public Articulo getArticulo(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Articulo.class, id);
 	}
 
 	public Articulo getArticuloNombre(String nombre) {
@@ -18,8 +25,9 @@ public class ArticulosDAO implements IArticulosDAO {
 	}
 
 	public Articulo creaArticulo(Articulo art) {
-		// TODO Auto-generated method stub
-		return null;
+		if(em.find(Articulo.class, art.getId())){
+			
+		}
 	}
 
 	public Articulo actualizaArticulo(Articulo nuevoArticulo) {
