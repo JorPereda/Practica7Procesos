@@ -1,9 +1,14 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Pedido {
+import javax.persistence.*;
+
+@Entity
+public class Pedido implements Serializable{
 	
+	@Id
 	private static int idPedido;
 	private String estado;
 	private List<Articulo> articulos;

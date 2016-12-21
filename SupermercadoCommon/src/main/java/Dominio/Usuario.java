@@ -1,8 +1,14 @@
 package Dominio;
 
-public class Usuario {
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+public class Usuario implements Serializable{
 
 	private String nombre;
+	@Id
 	private String dni;
 	private String direccion;
 	

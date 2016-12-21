@@ -1,8 +1,15 @@
 package Dominio;
 
-public class Articulo {
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+public class Articulo implements Serializable{
 	
-	private static int idArticulo = 1;
+	@Id
+	@GeneratedValue
+	private int idArticulo;
 
 	private String nombre;
 	private double precio;
@@ -14,7 +21,6 @@ public class Articulo {
 
 	public Articulo(String nombre, double precio, int stock) {
 		super();
-		idArticulo = Articulo.idArticulo++;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;
