@@ -7,7 +7,7 @@ import Interfaces.IUsuariosDAO;
 public class UsuariosDAO implements IUsuariosDAO {
 
 	public Usuario creaUsuario(Usuario user) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
