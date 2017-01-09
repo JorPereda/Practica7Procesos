@@ -3,6 +3,9 @@ package pruebasUnitariasDAO;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
+import javax.persistence.EntityManager;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -14,7 +17,8 @@ public class UsuariosDAOTest {
 	private static Usuario u;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		uDAO = mock(UsuariosDAO.class);
+		uDAO = (UsuariosDAO) mock(EntityManager.class);
+		
 		// mock sobre el Entity Manager
 		u = new Usuario("Pepe","1234567M","Calle del sol");
 
