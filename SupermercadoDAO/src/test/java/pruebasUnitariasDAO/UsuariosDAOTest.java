@@ -17,8 +17,8 @@ public class UsuariosDAOTest {
 	private static Usuario u;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		uDAO = (UsuariosDAO) mock(EntityManager.class);
-		
+		uDAO = new UsuariosDAO();
+		uDAO.em = mock(EntityManager.class);
 		// mock sobre el Entity Manager
 		u = new Usuario("Pepe","1234567M","Calle del sol");
 

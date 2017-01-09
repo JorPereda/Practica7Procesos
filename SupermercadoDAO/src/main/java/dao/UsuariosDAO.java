@@ -10,7 +10,7 @@ import Interfaces.IUsuariosDAO;
 public class UsuariosDAO implements IUsuariosDAO {
 
 	@PersistenceContext(unitName="UsuariosPU")	
-	private EntityManager em;
+	public EntityManager em;
 	
 	public Usuario creaUsuario(Usuario user) {
 		
