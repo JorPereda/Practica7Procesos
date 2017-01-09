@@ -2,34 +2,48 @@ package dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import Dominio.Articulo;
 import Dominio.Pedido;
 import Interfaces.IPedidosDAO;
 
 public class PedidosDAO implements IPedidosDAO {
 
+	@PersistenceContext(unitName="PedidosPU")	
+	private EntityManager em;
+	
 	public Pedido getPedido(int p) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Pedido.class, p);
 	}
 
 	public Pedido creaPedido(Pedido ped) {
-		// TODO Auto-generated method stub
-		return null;
+		if(em.find(Pedido.class, ped.getIdPedido()) == null){
+			em.persist(ped);
+			return ped;
+		}else{
+			return null;
+		}
 	}
 
 	public Pedido actualizaPedido(Pedido nuevoPedido) {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("UPDATE Pedido SET idPedido = nuevoPedido.getIdPedido(), "
+				+ "estado = nuevoPedido.getEstado, lista = nuevoPedido.getListaCompra "
+				+ "WHERE idPeido = nuevoPedido.getIdPedido()");
+		q.executeUpdate();
+		return nuevoPedido;
 	}
 
 	public Pedido eliminaPedido(Pedido ped) {
-		// TODO Auto-generated method stub
-		return null;
+		em.remove(ped);
+		return ped;
 	}
 
 	public List<Pedido> listaPedidos() {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("SELECT idPedido FROM Pedido");
+		return q.getResultList();
 	}
 
 	
