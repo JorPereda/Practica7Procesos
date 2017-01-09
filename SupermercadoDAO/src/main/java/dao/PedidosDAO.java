@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import Dominio.Articulo;
 import Dominio.Pedido;
 import Interfaces.IPedidosDAO;
 
@@ -30,8 +29,8 @@ public class PedidosDAO implements IPedidosDAO {
 
 	public Pedido actualizaPedido(Pedido nuevoPedido) {
 		Query q = em.createQuery("UPDATE Pedido SET idPedido = nuevoPedido.getIdPedido(), "
-				+ "estado = nuevoPedido.getEstado, lista = nuevoPedido.getListaCompra "
-				+ "WHERE idPeido = nuevoPedido.getIdPedido()");
+				+ "estado = nuevoPedido.getEstado(), lista = nuevoPedido.getListaCompra() "
+				+ "WHERE idPedido = nuevoPedido.getIdPedido()");
 		q.executeUpdate();
 		return nuevoPedido;
 	}

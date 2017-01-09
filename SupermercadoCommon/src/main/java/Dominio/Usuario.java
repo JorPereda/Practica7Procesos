@@ -48,6 +48,10 @@ public class Usuario implements Serializable{
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
+	public int getId() {
+		return id;
+	}
 	
 	
 }
