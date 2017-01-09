@@ -38,7 +38,7 @@ public class ArticulosDAO implements IArticulosDAO {
 
 	public Articulo actualizaArticulo(Articulo nuevoArticulo) {
 		Query q = em.createQuery("UPDATE Articulo SET nombre = nuevoArticulo.getNombre(), "
-				+ "precio = nuevoArticulo.getPrecio, stock = nuevoArticulo.getStock() "
+				+ "precio = nuevoArticulo.getPrecio(), stock = nuevoArticulo.getStock() "
 				+ "WHERE idArticulo = nuevoArticulo.getId()");
 		q.executeUpdate();
 		return nuevoArticulo;

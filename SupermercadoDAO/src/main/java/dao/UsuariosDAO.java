@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import Dominio.Usuario;
 import Interfaces.IUsuariosDAO;
@@ -13,28 +14,35 @@ public class UsuariosDAO implements IUsuariosDAO {
 	private EntityManager em;
 	
 	public Usuario creaUsuario(Usuario user) {
-		
-		return null;
+		if(em.find(Usuario.class, user.getDni()) == null){
+			em.persist(user);
+			return user;
+		}else{
+			return null;
+		}
 	}
 
 	public Usuario usuario(String usuario) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Usuario.class, usuario);
 	}
 
 	public Usuario actualizaUsuario(Usuario nuevoUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("UPDATE Usuario SET id = nuevoUsuario.getId(), "
+				+ "nombre = nuevoUsuario.getNombre(), dni = nuevoUsuario.getDni, "
+				+ "direccion = nuevoUsuario.getDireccion()"
+				+ "WHERE id = nuevoUsuario.getId()");
+		q.executeUpdate();
+		return nuevoUsuario;
 	}
 
-	public Usuario eliminaUsuario(String usuario) {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario eliminaUsuario(Usuario usuario) {
+		em.remove(usuario);
+		return usuario;
 	}
 
 	public List<Usuario> listaUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("SELECT dni FROM Usuario");
+		return q.getResultList();
 	}
 
 }
