@@ -1,11 +1,17 @@
 package dao;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import Dominio.Usuario;
 import Interfaces.IUsuariosDAO;
 
 public class UsuariosDAO implements IUsuariosDAO {
 
+	@PersistenceContext(unitName="UsuariosPU")	
+	private EntityManager em;
+	
 	public Usuario creaUsuario(Usuario user) {
 		
 		return null;
