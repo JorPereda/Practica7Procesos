@@ -27,7 +27,8 @@ public class UsuariosDAOTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		when(uDAO.usuario(u.getDni())).thenReturn(u);
+		assertTrue(uDAO.usuario(u.getDni()).equals(u));
 	}
 
 }
