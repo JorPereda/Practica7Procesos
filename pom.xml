@@ -14,6 +14,9 @@
   	<module>SupermercadoDAO</module>
   	<module>SupermercadoEAR</module>
   	<module>pruebasIntegracion</module>
+
+  	<module>SupermercadoWEB</module>
+
   </modules>
   
   <dependencies>
