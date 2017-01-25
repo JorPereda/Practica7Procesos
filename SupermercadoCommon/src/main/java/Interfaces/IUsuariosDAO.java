@@ -8,7 +8,7 @@ import Dominio.Usuario;
 @Remote
 public interface IUsuariosDAO {
 	
-	Usuario creaUsuario(Usuario user);
+	boolean creaUsuario(Usuario user);
 	Usuario usuario(String usuario);
 	Usuario actualizaUsuario(Usuario nuevoUsuario);
 	Usuario eliminaUsuario(Usuario usuario);

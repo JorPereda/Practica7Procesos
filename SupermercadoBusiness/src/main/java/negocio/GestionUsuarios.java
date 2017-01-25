@@ -20,7 +20,7 @@ public class GestionUsuarios implements IUsuarios, IRegistro {
 
 
 	public boolean registraUsuario(Usuario u) {
-		if((usu.creaUsuario(u))!=null){
+		if((usu.creaUsuario(u))==true){
 			return true;
 		}
 		else{

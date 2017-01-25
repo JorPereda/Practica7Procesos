@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import Dominio.Usuario;
 import Interfaces.IRegistro;
 import Interfaces.IUsuarios;
+import Interfaces.IUsuariosDAO;
 import negocio.GestionUsuarios;
 
 import org.junit.Before;
@@ -14,20 +15,20 @@ import org.junit.Test;
 
 public class GestionUsuariosTEST{
 	
-	private static IUsuarios		usuariosI;
+	private static IUsuariosDAO		usuariosI;
 	private static IRegistro		registroI;
 	private static Usuario u;
 	private static GestionUsuarios gU;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		usuariosI		= 	mock(IUsuarios.class);
+		usuariosI		= 	mock(IUsuariosDAO.class);
 		registroI		=	mock(IRegistro.class);
 		u = new Usuario("Pepe","1234567M","Calle del sol");
 		gU = new GestionUsuarios();
 		// Programar para que se utilice el mock correspondiente para "usu" y "reg"
 		gU.usu = usuariosI;
-		gU.reg = registroI;
+		//gU.reg = registroI;
 	}
 
 	@Test

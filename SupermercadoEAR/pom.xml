@@ -32,12 +32,17 @@
 			<artifactId>SupermercadoDAO</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ejb</type>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>es.unican.ps</groupId>
 			<artifactId>SupermercadoWEB</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>es.unican.ps</groupId>
+			<artifactId>pruebasIntegracion</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
