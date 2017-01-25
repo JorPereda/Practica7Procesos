@@ -13,7 +13,7 @@ import Interfaces.IArticulosDAO;
 @Stateless
 public class ArticulosDAO implements IArticulosDAO {
 
-	@PersistenceContext(unitName="ArticulosPU")	//PU=PersistenceUnit
+	@PersistenceContext(unitName="ArticulosPU")
 	private EntityManager em;
 	
 	public Articulo getArticulo(int id) {
