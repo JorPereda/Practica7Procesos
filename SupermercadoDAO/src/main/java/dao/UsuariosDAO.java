@@ -14,7 +14,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	public EntityManager em;
 	
 	public Usuario creaUsuario(Usuario user) {
-		if(em.find(Usuario.class, user.getDni()) == null){
+		if(user.getNombre()!=null){
 			em.persist(user);
 			return user;
 		}else{
@@ -27,11 +27,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	}
 
 	public Usuario actualizaUsuario(Usuario nuevoUsuario) {
-		Query q = em.createQuery("UPDATE Usuario SET id = nuevoUsuario.getId(), "
-				+ "nombre = nuevoUsuario.getNombre(), dni = nuevoUsuario.getDni, "
-				+ "direccion = nuevoUsuario.getDireccion()"
-				+ "WHERE id = nuevoUsuario.getId()");
-		q.executeUpdate();
+		em.merge(nuevoUsuario);
 		return nuevoUsuario;
 	}
 
@@ -41,7 +37,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	}
 
 	public List<Usuario> listaUsuarios() {
-		Query q = em.createQuery("SELECT dni FROM Usuario");
+		Query q = em.createQuery("SELECT a FROM Usuario a");
 		return q.getResultList();
 	}
 

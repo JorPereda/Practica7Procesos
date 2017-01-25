@@ -5,26 +5,33 @@ import javax.ejb.Stateless;
 import Dominio.Usuario;
 import Interfaces.IRegistro;
 import Interfaces.IUsuarios;
+import Interfaces.IUsuariosDAO;
 
 @Stateless
 public class GestionUsuarios implements IUsuarios, IRegistro {
 
 	@EJB
-	public IUsuarios usu;
+	public IUsuariosDAO usu;
 	
-	@EJB
-	public IRegistro reg;
 	
 	public GestionUsuarios(){
 		
 	}
-	
+
+
 	public boolean registraUsuario(Usuario u) {
-		return reg.registraUsuario(u);
+		if((usu.creaUsuario(u))!=null){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
+
 	public Usuario getUsuario(String nombre) {
-		return usu.getUsuario(nombre);
+		return usu.usuario(nombre);
 	}
+
 
 }

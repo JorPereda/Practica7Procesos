@@ -3,19 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Supermercado Login:</title>
+        <title>Mi Tienda</title>
     </h:head>
     <h:body>
-        <h2>Hola, por favor, introduzca su usuario:</h2>
-        <form name="loginForm" action="j_security_check" method="post">
-            <p><strong>Por favor introduce tu usuario: </strong>
-                <input type="text" name="j_username" size="25"/></p>
-            <p><strong>Por favor introduce tu contraseña: </strong>
-                <input type="password" size="15" name="j_password"/></p>
+        <h1>Datos Cliente:</h1>
+        <h:form name="loginForm" action="j_security_check" method="post">
+            <p><strong>Nombre cliente: </strong>
+            <inputText required="true" value="#{PedidosBean.user}"/></p>
+            
             <p>
-                <input type="submit" value="Aceptar"/>
-                <input type="reset" value="Borrar"/></p>
-        </form>       
+            <h:commandButton id="aceptarLogin" value="Aceptar" action="#{PedidosBean.login}"/>
+            </p>
+        </h:form>       
     </h:body>
 </html>
 

@@ -28,7 +28,7 @@ public class ArticulosDAO implements IArticulosDAO {
 	}
 
 	public Articulo creaArticulo(Articulo art) {
-		if(em.find(Articulo.class, art.getNombre()) == null){
+		if(art.getNombre()!=null){
 			em.persist(art);
 			return art;
 		}else{
@@ -36,21 +36,19 @@ public class ArticulosDAO implements IArticulosDAO {
 		}
 	}
 
+	
 	public Articulo actualizaArticulo(Articulo nuevoArticulo) {
-		Query q = em.createQuery("UPDATE Articulo SET nombre = nuevoArticulo.getNombre(), "
-				+ "precio = nuevoArticulo.getPrecio(), stock = nuevoArticulo.getStock() "
-				+ "WHERE idArticulo = nuevoArticulo.getId()");
-		q.executeUpdate();
+		em.merge(nuevoArticulo);
 		return nuevoArticulo;
 	}
 
 	public Articulo eliminaArticulo(Articulo art) {
-		em.remove(art);
+		em.remove(em.merge(art));
 		return art;	
 	}
 
 	public List<Articulo> listaArticulo() {
-		Query q = em.createQuery("SELECT nombre FROM Articulo");
+		Query q = em.createQuery("SELECT a FROM Articulo a");
 		return q.getResultList();
 	}
 	

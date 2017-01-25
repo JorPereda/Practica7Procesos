@@ -1,22 +1,30 @@
 package negocio;
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import Dominio.Articulo;
+import Interfaces.IArticulosDAO;
 import Interfaces.IInventario;
 
 @Stateless
 public class GestionInventario implements IInventario{
 
 	@EJB
-	public IInventario inventario;
+	public IArticulosDAO inventario;
 
 	public GestionInventario(){
 		
 	}
 
-	public boolean removeArticulo(int id) {
-		return inventario.removeArticulo(id);
+	public boolean removeArticulo(Articulo art) {
+		if((inventario.eliminaArticulo(art))!=null){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	public Articulo getArticulo(int id) {
@@ -24,13 +32,26 @@ public class GestionInventario implements IInventario{
 	}
 
 	public boolean addArticulo(Articulo art) {
-		return inventario.addArticulo(art);
+		if((inventario.creaArticulo(art))!=null){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 
 	public boolean updateArticulo(Articulo art) {
-		return inventario.updateArticulo(art);
+		if((inventario.actualizaArticulo(art))!=null){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
-	
+	public List<Articulo> listArticulos() {
+		return inventario.listaArticulo();
+	}
 	
 }

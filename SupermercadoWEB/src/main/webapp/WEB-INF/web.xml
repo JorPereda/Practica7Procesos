@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Calculator</display-name>
   <welcome-file-list>
-  	<welcome-file>calculator.jsf</welcome-file>
+  	<welcome-file>login.xhtml</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
@@ -17,12 +17,12 @@
   <!-- Configuracion de la seguridad -->
   <security-constraint>
 		<web-resource-collection>
-			<web-resource-name>Calculadora</web-resource-name>
-			<url-pattern>/calculator.jsf</url-pattern>
+			<web-resource-name>Supermercado</web-resource-name>
+			<url-pattern>/supermercado.jsf</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>ALUMNOS</role-name>
-			<role-name>PROFESOR</role-name>
+			<role-name>GERENTE</role-name>
+			<role-name>DEPENDIENTE</role-name>
 		</auth-constraint>
 		<user-data-constraint>
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
@@ -30,10 +30,10 @@
 	</security-constraint>
 
 	<security-role>
-		<role-name>PROFESOR</role-name>
+		<role-name>GERENTE</role-name>
 	</security-role>
 	<security-role>
-		<role-name>ALUMNOS</role-name>
+		<role-name>DEPENDIENTE</role-name>
 	</security-role>
 
 	<login-config>

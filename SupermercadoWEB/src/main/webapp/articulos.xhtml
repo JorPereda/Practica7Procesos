@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Mi Tienda</title>
+</h:head>
+<h:body>
+	<h1>Articulos:</h1>
+        <h:form name="loginForm" action="j_security_check" method="post">
+            <h:dataTable value="#{pedidosBean.articulo}" var="articulo" border="0" cellpadding="4" 
+							cellspacing="0" rules="all" style="border:solid 1px">
+				<h:column> 
+					<f:facet name="header">
+						<h:outputText value="Nombre"/> 
+					</f:facet> 
+					<h:outputText value="#{articulo.nombre}"/> 
+				</h:column>
+				
+				<h:column> 
+					<f:facet name="header"> 
+						<h:outputText value="Precio"/> 
+					</f:facet> 
+					<h:outputText value="#{articulo.precio}"/> 
+				</h:column>
+				
+				<h:column> 
+					<f:facet name="header"> 
+						<h:outputText value=""/> 
+					</f:facet> 
+					<h:commandLink action="#{pedidosBean.muestraCarrito}">Añadir al carro</h:commandLink>
+				</h:column>
+			</h:dataTable>
+            <p>
+			<h:commandLink value="Ver carrito" action="carrito.xhtml"/>
+			</p>
+        </h:form>
+</h:body>
+</html>

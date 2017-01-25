@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Mi Tienda</title>
+    </h:head>
+    <h:body>
+		<h1>CarritoCompra:</h1>
+        <h:form name="loginForm" action="j_security_check" method="post">
+            <p><strong>Articulo:</strong>
+                <inputText required="true" value="#{PedidosBean.articulo}"/></p>
+            <p><strong>Unidades:</strong>
+                <inputText required="true" value="#{PedidosBean.cantidad}"/></p>
+            <p>
+            <h:commandButton id="addArt" value="Añadir" action="#{PedidosBean.addCarrito}"/>
+            <h:commandLink action="carrito.xhtml">"Volver a lista de articulos"</h:commandLink>
+			</p>
+        </h:form>       
+    </h:body>
+</html>

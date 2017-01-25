@@ -19,7 +19,7 @@ public class PedidosDAO implements IPedidosDAO {
 	}
 
 	public Pedido creaPedido(Pedido ped) {
-		if(em.find(Pedido.class, ped.getIdPedido()) == null){
+		if(ped.getIdPedido()!=0){
 			em.persist(ped);
 			return ped;
 		}else{
@@ -28,21 +28,30 @@ public class PedidosDAO implements IPedidosDAO {
 	}
 
 	public Pedido actualizaPedido(Pedido nuevoPedido) {
-		Query q = em.createQuery("UPDATE Pedido SET idPedido = nuevoPedido.getIdPedido(), "
-				+ "estado = nuevoPedido.getEstado(), lista = nuevoPedido.getListaCompra() "
-				+ "WHERE idPedido = nuevoPedido.getIdPedido()");
-		q.executeUpdate();
+		em.merge(nuevoPedido);
 		return nuevoPedido;
 	}
 
 	public Pedido eliminaPedido(Pedido ped) {
-		em.remove(ped);
+		em.remove(em.merge(ped));
 		return ped;
 	}
 
 	public List<Pedido> listaPedidos() {
-		Query q = em.createQuery("SELECT idPedido FROM Pedido");
+		Query q = em.createQuery("SELECT a FROM Pedido a");
 		return q.getResultList();
+	}
+
+	public boolean confirmaPedido(Pedido ped) {
+		Query q = em.createQuery("SELECT p FROM Pedido p WHERE p.estado = :est");
+		if((q.setParameter("est", "Procesado"))!=null){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+		
 	}
 
 	

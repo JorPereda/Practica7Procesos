@@ -14,5 +14,6 @@ public interface IPedidosDAO {
 	Pedido actualizaPedido(Pedido nuevoPedido);
 	Pedido eliminaPedido(Pedido ped);
 	List<Pedido> listaPedidos();
+	boolean confirmaPedido(Pedido ped);
 
 }

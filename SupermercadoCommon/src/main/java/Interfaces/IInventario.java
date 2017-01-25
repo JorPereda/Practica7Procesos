@@ -1,4 +1,6 @@
 package Interfaces;
+import java.util.List;
+
 import javax.ejb.Remote;
 
 import Dominio.*;
@@ -6,7 +8,8 @@ import Dominio.*;
 @Remote
 public interface IInventario {
 	boolean addArticulo(Articulo art);
-	boolean removeArticulo(int id);
+	boolean removeArticulo(Articulo art);
 	boolean updateArticulo(Articulo art);
 	Articulo getArticulo(int id);
+	List<Articulo> listArticulos();
 }
