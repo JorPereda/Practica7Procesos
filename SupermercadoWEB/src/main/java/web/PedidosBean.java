@@ -13,6 +13,7 @@ import javax.inject.Named;
 import Dominio.Articulo;
 import Dominio.Pedido;
 import Dominio.Usuario;
+import Interfaces.IInventario;
 import Interfaces.IRealizarPedido;
 import Interfaces.IUsuarios;
 
@@ -24,19 +25,23 @@ public class PedidosBean {
 	private IRealizarPedido miPedido;
 	@EJB
 	private IUsuarios usuarios;
+	@EJB
+	private IInventario articulos;
 	
 	private String user;
 	private Articulo articulo;
+	private Pedido pedido;
 	private int cantidad;
 	private double precio;
 	
 	/**
 	 * Login del cliente
-	 * @return
+	 * @return pagina articulos.xhtml (exito), pagina error.xhtml (fallo)
 	 */
 	public String login(){
 		Usuario u = usuarios.getUsuario(user);
 		if(u!=null){
+			pedido = new Pedido();
 			return "articulos.xhtml";
 		}else{
 			return "error.xhmtl";
@@ -45,18 +50,19 @@ public class PedidosBean {
 
 	/**
 	 * Añade producto al carro para seleccionar su cantidad
-	 * @return
+	 * @return pagina carrito.xhtml
 	 */
-	public String muestraCarrito() {
-		
+	public String muestraCarrito(int id) {
+		articulo = articulos.getArticulo(id);
 		return "carrito.xhtml";
 	}
 
 	/**
-	 * Añadde el producto con la cantidad seleccionada a la cesta final
-	 * @return
+	 * Añade el producto con la cantidad seleccionada a la cesta final
+	 * @return pagina cestafinal.xhtml
 	 */
 	public String addCarrito(){
+		miPedido.asignaArticulo(pedido, articulo, cantidad);
 		return "cestafinal.xhtml";
 	}
 	
@@ -65,7 +71,9 @@ public class PedidosBean {
 	 * @return
 	 */
 	public String confirmarCarro(){
-		return ".xhtml";
+		miPedido.confirmaPedido(pedido);
+		System.out.println(pedido.getIdPedido());
+		return "login.xhtml";
 	}
 
 

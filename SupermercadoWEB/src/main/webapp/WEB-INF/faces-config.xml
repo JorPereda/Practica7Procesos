@@ -11,17 +11,16 @@
        <from-view-id>login.xhtml</from-view-id>   
        <navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>pideDni.xhtml</to-view-id>   
+			<to-view-id>articulos.xhtml</to-view-id>   
        </navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-       <from-view-id>pideDni.xhtml</from-view-id>   
+       <from-view-id>articulos.xhtml</from-view-id>   
        <navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>pedido.xhtml</to-view-id>   
+			<to-view-id>carrito.xhtml</to-view-id>   
        </navigation-case>
 	</navigation-rule>
-	
 
 </faces-config>
