@@ -16,12 +16,13 @@ public class UsuariosDAO implements IUsuariosDAO {
 	@PersistenceContext(unitName="UsuariosPU")
 	public EntityManager em;	//Si esta privado no funciona el test
 	
-	public Usuario creaUsuario(Usuario user) {
+
+	public boolean creaUsuario(Usuario user) {
 		if(user.getNombre()!=null){
 			em.persist(user);
-			return user;
+			return true;
 		}else{
-			return null;
+			return false;
 		}
 	}
 
