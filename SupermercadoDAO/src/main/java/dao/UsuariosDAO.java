@@ -1,4 +1,5 @@
 package dao;
+
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -12,8 +13,8 @@ import Interfaces.IUsuariosDAO;
 @Stateless
 public class UsuariosDAO implements IUsuariosDAO {
 
-	@PersistenceContext(unitName="UsuariosPU")	
-	public EntityManager em;
+	@PersistenceContext(unitName="SupermercadoPU")
+	public EntityManager em;	//Si esta privado no funciona el test
 	
 
 	public boolean creaUsuario(Usuario user) {
@@ -25,8 +26,14 @@ public class UsuariosDAO implements IUsuariosDAO {
 		}
 	}
 
-	public Usuario usuario(String usuario) {
-		return em.find(Usuario.class, usuario);
+	public Usuario usuario(int id) {
+		return em.find(Usuario.class, id);
+	}
+	
+	public Usuario usuarioPorNombre(String user){
+		Query q = em.createQuery("SELECT a FROM Usuario a WHERE a.nombre = :usuario");
+		q.setParameter("usuario", user);
+		return (Usuario) q.getSingleResult();
 	}
 
 	public Usuario actualizaUsuario(Usuario nuevoUsuario) {

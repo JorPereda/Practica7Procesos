@@ -13,7 +13,7 @@ import Interfaces.IPedidosDAO;
 @Stateless
 public class PedidosDAO implements IPedidosDAO {
 
-	@PersistenceContext(unitName="PedidosPU")	
+	@PersistenceContext(unitName="SupermercadoPU")	
 	private EntityManager em;
 	
 	public Pedido getPedido(int p) {

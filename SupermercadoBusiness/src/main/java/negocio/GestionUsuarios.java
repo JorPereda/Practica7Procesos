@@ -30,7 +30,7 @@ public class GestionUsuarios implements IUsuarios, IRegistro {
 
 
 	public Usuario getUsuario(String nombre) {
-		return usu.usuario(nombre);
+		return usu.usuarioPorNombre(nombre);
 	}
 
 
