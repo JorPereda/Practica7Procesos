@@ -34,7 +34,7 @@ public class PedidosBean implements Serializable {
 	private IInventario articulos;
 	
 	private String user;
-	private Articulo articulo;
+	private String articulo;
 	private Pedido pedido;
 	private List<Articulo> listaArticulos;
 	private int cantidad;
@@ -68,7 +68,7 @@ public class PedidosBean implements Serializable {
 	 * @return pagina carrito.xhtml
 	 */
 	public String muestraCarrito(int id) {
-		articulo = articulos.
+		articulo = articulos.getArticulo(id).getNombre();
 		return "carrito.xhtml";
 	}
 
@@ -77,7 +77,8 @@ public class PedidosBean implements Serializable {
 	 * @return pagina cestafinal.xhtml
 	 */
 	public String addCarrito(){
-		miPedido.asignaArticulo(pedido, articulo, cantidad);
+		Articulo art = articulos.getArticuloNombre(articulo);
+		miPedido.asignaArticulo(pedido, art, cantidad);
 		return "cestafinal.xhtml";
 	}
 	
@@ -102,12 +103,12 @@ public class PedidosBean implements Serializable {
 	}
 
 
-	public Articulo getArticulo() {
+	public String getArticulo() {
 		return articulo;
 	}
 
 
-	public void setArticulo(Articulo articulo) {
+	public void setArticulo(String articulo) {
 		this.articulo = articulo;
 	}
 
