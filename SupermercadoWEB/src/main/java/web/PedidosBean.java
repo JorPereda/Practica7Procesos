@@ -76,9 +76,12 @@ public class PedidosBean implements Serializable {
 	 * Añade el producto con la cantidad seleccionada a la cesta final
 	 * @return pagina cestafinal.xhtml
 	 */
-	public String addCarrito(){
+	public String addCarrito(int cant){
 		Articulo art = articulos.getArticuloNombre(articulo);
-		miPedido.asignaArticulo(pedido, art, cantidad);
+		art.setStock(cantidad + cant);
+		cantidad = cant;
+		precio = art.getPrecio()*cantidad;
+		miPedido.asignaArticulo(pedido, art, cant);
 		return "cestafinal.xhtml";
 	}
 	

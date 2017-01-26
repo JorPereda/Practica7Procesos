@@ -10,7 +10,7 @@
 <h:body>
 	<h1>Carrito Compra:</h1>
         <h:form name="loginForm" action="j_security_check" method="post">
-            <h:dataTable value="#{pedidosBean.articulo}" var="articulo" border="0" cellpadding="4" 
+            <h:dataTable value="#{pedidosBean.listaArticulos}" var="articulo" border="0" cellpadding="4" 
 							cellspacing="0" rules="all" style="border:solid 1px">
 				<h:column> 
 					<f:facet name="header">
@@ -23,7 +23,7 @@
 					<f:facet name="header"> 
 						<h:outputText value="Cantidad"/> 
 					</f:facet> 
-					<h:outputText value="#{articulo.cantidad}"/> 
+					<h:outputText value="#{articulo.stock}"/> 
 				</h:column>
 				
 			</h:dataTable>

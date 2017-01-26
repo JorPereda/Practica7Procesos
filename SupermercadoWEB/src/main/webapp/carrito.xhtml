@@ -11,10 +11,10 @@
             <p><strong>Articulo:</strong>
                 <h:inputText required="true" value="#{pedidosBean.articulo}"/></p>
             <p><strong>Unidades:</strong>
-                <h:inputText required="true" value="#{pedidosBean.cantidad}"/></p>
+                <h:inputText id="cant" required="true" value="#{pedidosBean.cantidad}"/></p>
             <p>
-            <h:commandButton id="addArt" value="Añadir" action="#{pedidosBean.addCarrito}"/>
-            <h:commandLink action="carrito.xhtml">"Volver a lista de articulos"</h:commandLink>
+            <h:commandButton id="addArt" value="Añadir" action="#{pedidosBean.addCarrito(cant)}"/>
+            <h:commandLink action="articulos.xhtml">"Volver a lista de articulos"</h:commandLink>
 			</p>
         </h:form>       
     </h:body>
