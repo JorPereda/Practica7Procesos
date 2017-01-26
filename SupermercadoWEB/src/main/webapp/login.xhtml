@@ -7,12 +7,12 @@
     </h:head>
     <h:body>
         <h1>Datos Cliente:</h1>
-        <h:form name="loginForm" action="j_security_check" method="post">
+        <h:form>
             <p><strong>Nombre cliente: </strong>
-            <inputText required="true" value="#{PedidosBean.user}"/></p>
+            <h:inputText required="true" value="#{pedidosBean.user}"/></p>
             
             <p>
-            <h:commandButton id="aceptarLogin" value="Aceptar" action="#{PedidosBean.login}"/>
+            <h:commandButton id="aceptarLogin" value="Aceptar" action="#{pedidosBean.login}"/>
             </p>
         </h:form>       
     </h:body>

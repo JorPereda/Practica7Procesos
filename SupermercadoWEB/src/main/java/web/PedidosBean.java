@@ -2,10 +2,13 @@ package web;
 
 
 
+import java.io.Serializable;
+import java.util.List;
+
 //import java.io.IOException;
 
 import javax.ejb.EJB;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import Dominio.Articulo;
@@ -17,8 +20,12 @@ import Interfaces.IUsuarios;
 
 @Named
 @SessionScoped
-public class PedidosBean {
+public class PedidosBean implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@EJB
 	private IRealizarPedido miPedido;
 	@EJB
@@ -29,6 +36,7 @@ public class PedidosBean {
 	private String user;
 	private Articulo articulo;
 	private Pedido pedido;
+	private List<Articulo> listaArticulos;
 	private int cantidad;
 	private double precio;
 	
@@ -38,12 +46,21 @@ public class PedidosBean {
 	 */
 	public String login(){
 		Usuario u = usuarios.getUsuario(user);
+		listaArticulos = articulos.listArticulos();
 		if(u!=null){
 			pedido = new Pedido();
 			return "articulos.xhtml";
 		}else{
 			return "error.xhmtl";
 		}
+	}
+
+	public List<Articulo> getListaArticulos() {
+		return listaArticulos;
+	}
+
+	public void setListaArticulos(List<Articulo> listaArticulos) {
+		this.listaArticulos = listaArticulos;
 	}
 
 	/**

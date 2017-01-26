@@ -9,7 +9,8 @@ import Dominio.Usuario;
 public interface IUsuariosDAO {
 	
 	boolean creaUsuario(Usuario user);
-	Usuario usuario(String usuario);
+	Usuario usuario(int id);
+	Usuario usuarioPorNombre(String user);
 	Usuario actualizaUsuario(Usuario nuevoUsuario);
 	Usuario eliminaUsuario(Usuario usuario);
 	List<Usuario> listaUsuarios();
