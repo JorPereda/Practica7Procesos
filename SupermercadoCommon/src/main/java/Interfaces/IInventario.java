@@ -11,5 +11,6 @@ public interface IInventario {
 	boolean removeArticulo(Articulo art);
 	boolean updateArticulo(Articulo art);
 	Articulo getArticulo(int id);
+	Articulo getArticuloNombre(String nombre);
 	List<Articulo> listArticulos();
 }

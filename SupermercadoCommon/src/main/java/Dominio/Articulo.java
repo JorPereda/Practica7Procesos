@@ -7,9 +7,22 @@ import javax.persistence.*;
 @Entity
 public class Articulo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private int idArticulo;
+
+	public int getIdArticulo() {
+		return idArticulo;
+	}
+
+	public void setIdArticulo(int idArticulo) {
+		this.idArticulo = idArticulo;
+	}
 
 	private String nombre;
 	private double precio;
@@ -26,9 +39,6 @@ public class Articulo implements Serializable{
 		this.stock = stock;
 	}
 
-	public int getId() {
-		return idArticulo;
-	}
 	
 	public String getNombre() {
 		return nombre;

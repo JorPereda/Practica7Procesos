@@ -68,7 +68,7 @@ public class PedidosBean implements Serializable {
 	 * @return pagina carrito.xhtml
 	 */
 	public String muestraCarrito(int id) {
-		articulo = articulos.getArticulo(id);
+		articulo = articulos.
 		return "carrito.xhtml";
 	}
 

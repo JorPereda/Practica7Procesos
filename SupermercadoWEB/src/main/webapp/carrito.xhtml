@@ -7,11 +7,11 @@
     </h:head>
     <h:body>
 		<h1>CarritoCompra:</h1>
-        <h:form name="loginForm" action="j_security_check" method="post">
+        <h:form>
             <p><strong>Articulo:</strong>
-                <inputText required="true" value="#{PedidosBean.articulo}"/></p>
+                <h:inputText required="true" value="#{pedidosBean.articulo}"/></p>
             <p><strong>Unidades:</strong>
-                <inputText required="true" value="#{PedidosBean.cantidad}"/></p>
+                <h:inputText required="true" value="#{pedidosBean.cantidad}"/></p>
             <p>
             <h:commandButton id="addArt" value="Añadir" action="#{pedidosBean.addCarrito}"/>
             <h:commandLink action="carrito.xhtml">"Volver a lista de articulos"</h:commandLink>

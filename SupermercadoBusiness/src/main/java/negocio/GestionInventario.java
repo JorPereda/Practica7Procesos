@@ -30,6 +30,10 @@ public class GestionInventario implements IInventario{
 	public Articulo getArticulo(int id) {
 		return inventario.getArticulo(id);
 	}
+	
+	public Articulo getArticuloNombre(String articulo){
+		return inventario.getArticuloNombre(articulo);
+	}
 
 	public boolean addArticulo(Articulo art) {
 		if((inventario.creaArticulo(art))!=null){
