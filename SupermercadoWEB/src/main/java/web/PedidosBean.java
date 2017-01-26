@@ -1,13 +1,11 @@
 package web;
 
-import javax.annotation.PostConstruct;
+
 
 //import java.io.IOException;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import Dominio.Articulo;

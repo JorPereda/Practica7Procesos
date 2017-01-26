@@ -1,4 +1,5 @@
 package dao;
+
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -12,8 +13,8 @@ import Interfaces.IUsuariosDAO;
 @Stateless
 public class UsuariosDAO implements IUsuariosDAO {
 
-	@PersistenceContext(unitName="UsuariosPU")	
-	public EntityManager em;
+	@PersistenceContext(unitName="UsuariosPU")
+	public EntityManager em;	//Si esta privado no funciona el test
 	
 	public Usuario creaUsuario(Usuario user) {
 		if(user.getNombre()!=null){
