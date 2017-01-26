@@ -5,12 +5,24 @@
     <context-root>/Supermercado</context-root>
     
    <security-role-mapping>
-      <role-name>GERENTE</role-name>
-      <principal-name>Gerente</principal-name>
+      <role-name>Gerente</role-name>
+      <group-name>Gerentes</group-name>
    </security-role-mapping>
 
    <security-role-mapping>
-      <role-name>DEPENDIENTE</role-name>
-      <group-name>Empleados</group-name>
+      <role-name>Dependiente</role-name>
+      <group-name>Dependientes</group-name>
    </security-role-mapping>
+   
+   <security-role-mapping>
+      <role-name>UsuarioNoRegistrado</role-name>
+      <group-name>UsuariosNoRegistrados</group-name>
+   </security-role-mapping>
+   
+   <security-role-mapping>
+      <role-name>Usuario</role-name>
+      <group-name>UsuariosRegistrados</group-name>
+   </security-role-mapping>
+   
+   
 </glassfish-web-app>

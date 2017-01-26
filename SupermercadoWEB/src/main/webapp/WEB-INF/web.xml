@@ -18,11 +18,12 @@
   <security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Supermercado</web-resource-name>
-			<url-pattern>/supermercado.jsf</url-pattern>
+			<!-- <url-pattern>/articulos.jsf</url-pattern> -->
+			<url-pattern></url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>GERENTE</role-name>
-			<role-name>DEPENDIENTE</role-name>
+			<role-name>Gerente</role-name>
+			<role-name>Dependiente</role-name>
 		</auth-constraint>
 		<user-data-constraint>
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
@@ -30,10 +31,10 @@
 	</security-constraint>
 
 	<security-role>
-		<role-name>GERENTE</role-name>
+		<role-name>Gerente</role-name>
 	</security-role>
 	<security-role>
-		<role-name>DEPENDIENTE</role-name>
+		<role-name>Dependiente</role-name>
 	</security-role>
 
 	<login-config>
